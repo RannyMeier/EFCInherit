@@ -1,0 +1,8 @@
+BomItem bomItem = new BomItem() { Name = "Part1", Sku = "part1" };
+Items.Add(bomItem);
+SLItem sLItem = new SLItem() { BomItem = bomItem, Name = "SerPart1", SerLot = "1234" };
+Items.Add(sLItem);
+foreach (Item item in Items.Local)
+{
+	item.Name.Dump();
+}
