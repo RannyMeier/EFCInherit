@@ -15,5 +15,6 @@ using ItemContext context = new ItemContext();
     {
         Console.WriteLine(item.Name);
     }
-
+    Console.WriteLine(String.Format("Items.OfType<SLItem>().Count() = {0}, SLItem count = {1}", 
+        context.Items.OfType<SLItem>().Count(), context.SLItems.Count()));
 }
