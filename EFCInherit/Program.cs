@@ -4,11 +4,13 @@ Console.WriteLine("Hello, World!");
 
 using ItemContext context = new ItemContext();
 {
-    context.Database.EnsureCreated();
-    BomItem bomItem = new() { Sku = "part1" };
+    await context.Database.EnsureDeletedAsync();
+    await context.Database.EnsureCreatedAsync();
+    BomItem bomItem = new() { Name = "Part", Sku = "part1" };
     context.BomItems.Add(bomItem);
-    SLItem sLItem = new() { BomItem = bomItem, SerLot = "1234" };
+    SLItem sLItem = new() { BomItem = bomItem, Name = "SItem", SerLot = "1234" };
     context.SLItems.Add(sLItem);
+    Console.WriteLine(context.SaveChanges().ToString());
     foreach (Item item in context.Items)
     {
         Console.WriteLine(item.Name);

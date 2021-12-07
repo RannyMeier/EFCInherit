@@ -42,9 +42,9 @@ namespace EFCInherit
             {
                 entity.ToTable("Items_BomItem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                //entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Sku).HasMaxLength(128);
+                //entity.Property(e => e.Sku).HasMaxLength(128);
 
                 //entity.HasOne(d => d.IdNavigation)
                 //    .WithOne(p => p.Items_BomItem)
@@ -57,15 +57,15 @@ namespace EFCInherit
             {
                 entity.ToTable("Items_SLItem");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                //entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.SerLot).HasMaxLength(256);
+                //entity.Property(e => e.SerLot).HasMaxLength(256);
 
-                entity.HasOne(d => d.BomItem)
-                    .WithMany(p => p.SLItems)
-                    .HasForeignKey(d => d.BomItemId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_BomItemSLItem");
+                //entity.HasOne(d => d.BomItem)
+                //    .WithMany(p => p.SLItems)
+                //    .HasForeignKey(d => d.BomItemId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_BomItemSLItem");
 
                 //entity.HasOne(d => d.IdNavigation)
                 //    .WithOne(p => p.Items_SLItem)
