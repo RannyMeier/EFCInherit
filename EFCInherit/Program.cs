@@ -4,10 +4,14 @@ Console.WriteLine("Hello, World!");
 
 using ItemContext context = new ItemContext();
 {
-    BomItem bomItem = new();
+    context.Database.EnsureCreated();
+    BomItem bomItem = new() { Sku = "part1" };
     context.BomItems.Add(bomItem);
     SLItem sLItem = new() { BomItem = bomItem, SerLot = "1234" };
     context.SLItems.Add(sLItem);
-
+    foreach (Item item in context.Items)
+    {
+        Console.WriteLine(item.Name);
+    }
 
 }
