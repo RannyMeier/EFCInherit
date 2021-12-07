@@ -9,7 +9,7 @@ using ItemContext context = new ItemContext();
     BomItem bomItem = new() { Name = "Part", Sku = "part1" };
     context.BomItems.Add(bomItem);
     SLItem sLItem = new() { BomItem = bomItem, Name = "SItem", SerLot = "1234" };
-    context.SLItems.Add(sLItem);
+    context.Items.Add(sLItem); //apparently we can add to either Items or SLItems
     Console.WriteLine(context.SaveChanges().ToString());
     foreach (Item item in context.Items)
     {
@@ -17,4 +17,5 @@ using ItemContext context = new ItemContext();
     }
     Console.WriteLine(String.Format("Items.OfType<SLItem>().Count() = {0}, SLItem count = {1}", 
         context.Items.OfType<SLItem>().Count(), context.SLItems.Count()));
+    //Having the SLItem set exposed may either be a feature of code first or EF Core ?
 }

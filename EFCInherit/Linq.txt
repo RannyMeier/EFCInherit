@@ -1,3 +1,4 @@
+//works on original EF6 context model
 BomItem bomItem = new BomItem() { Name = "Part1", Sku = "part1" };
 Items.Add(bomItem);
 SLItem sLItem = new SLItem() { BomItem = bomItem, Name = "SerPart1", SerLot = "1234" };

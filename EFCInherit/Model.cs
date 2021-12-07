@@ -44,7 +44,7 @@ namespace EFCInherit
 
                 //entity.Property(e => e.Id).ValueGeneratedNever();
 
-                //entity.Property(e => e.Sku).HasMaxLength(128);
+                entity.Property(e => e.Sku).HasMaxLength(128);
 
                 //entity.HasOne(d => d.IdNavigation)
                 //    .WithOne(p => p.Items_BomItem)
@@ -59,7 +59,7 @@ namespace EFCInherit
 
                 //entity.Property(e => e.Id).ValueGeneratedNever();
 
-                //entity.Property(e => e.SerLot).HasMaxLength(256);
+                entity.Property(e => e.SerLot).HasMaxLength(256);
 
                 //entity.HasOne(d => d.BomItem)
                 //    .WithMany(p => p.SLItems)
