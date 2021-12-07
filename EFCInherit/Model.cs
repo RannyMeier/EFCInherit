@@ -61,11 +61,11 @@ namespace EFCInherit
 
                 entity.Property(e => e.SerLot).HasMaxLength(256);
 
-                //entity.HasOne(d => d.BomItem)
-                //    .WithMany(p => p.SLItems)
-                //    .HasForeignKey(d => d.BomItemId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK_BomItemSLItem");
+                entity.HasOne(d => d.BomItem)
+                    .WithMany(p => p.SLItems)
+                    .HasForeignKey(d => d.BomItemId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_BomItemSLItem");
 
                 //entity.HasOne(d => d.IdNavigation)
                 //    .WithOne(p => p.Items_SLItem)
@@ -116,7 +116,7 @@ namespace EFCInherit
         public int BomItemId { get; set; }
         //public int Id { get; set; }
 
-        public virtual BomItem BomItem { get; set; } = null!;
+        public virtual BomItem BomItem { get; set; }
         //public virtual Item IdNavigation { get; set; } = null!;
     }
 
